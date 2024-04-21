@@ -28,6 +28,10 @@ def webhook():
             send_message(sender_id, text)
         return 'OK'
 
+@app.route('/')
+def home():
+    return "Welcome to JoinRoamer.com!"
+
 def send_message(recipient_id, text):
     headers = {
         'Content-Type': 'application/json'
