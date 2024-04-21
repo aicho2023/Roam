@@ -4,7 +4,7 @@ import requests
 app = Flask(__name__)
 
 FB_ACCESS_TOKEN = 'EAALiBWhjZBIwBO2QxtXPQGLRACkvjV457egwR8SU9pnv1htDJnxLeIty0yGgXZCvU6fiPCCRQ0vsc42nZAjHKQIxMSPAu3FkUQrDmXC1lLJRZCBNKNTkSeEFjv1YrZBboi0XEWpJGEM3rsJQOOa3RGBknuXX2ckwCqsJ8yaRfTjSU1uKOg3kaZBJZA0vZAWqSk43L3h7ZAk87uAZDZD'
-VERIFY_TOKEN = 'alred'
+VERIFY_TOKEN = 'alfred'
 
 @app.route('/webhook', methods=['GET', 'POST'])
 def webhook():
@@ -46,4 +46,5 @@ def send_message(recipient_id, text):
     print(response.json())
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Ensure it listens on all network interfaces, not just the local host
+    app.run(host='0.0.0.0', port=8080, debug=True)
